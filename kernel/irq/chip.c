@@ -333,24 +333,6 @@ static void cond_unmask_irq(struct irq_desc *desc)
 		unmask_irq(desc);
 }
 
-/*
- * Called unconditionally from handle_level_irq() and only for oneshot
- * interrupts from handle_fasteoi_irq()
- */
-static void cond_unmask_irq(struct irq_desc *desc)
-{
-	/*
-	 * We need to unmask in the following cases:
-	 * - Standard level irq (IRQF_ONESHOT is not set)
-	 * - Oneshot irq which did not wake the thread (caused by a
-	 *   spurious interrupt or a primary handler handling it
-	 *   completely).
-	 */
-	if (!irqd_irq_disabled(&desc->irq_data) &&
-	    irqd_irq_masked(&desc->irq_data) && !desc->threads_oneshot)
-		unmask_irq(desc);
-}
-
 /**
  *	handle_level_irq - Level type irq handler
  *	@irq:	the interrupt number
@@ -437,9 +419,6 @@ handle_fasteoi_irq(unsigned int irq, struct irq_desc *desc)
 
 	preflow_handler(desc);
 	handle_irq_event(desc);
-
-	if (desc->istate & IRQS_ONESHOT)
-		cond_unmask_irq(desc);
 
 	if (desc->istate & IRQS_ONESHOT)
 		cond_unmask_irq(desc);
