@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2009 LGE, Inc.
  *
- * Author: Changsu Ha <cs77.ha@lge.com>
+ * Author: Changsu Ha <>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 /**
 	@brief		 star(lgp990) power key
  
-	@author		 cs77.ha@lge.com
+	@author		
 	@date		 2010-04-13
  
 	@version	 V1.00		 2010.04.13		 Changsu Ha	 Create
@@ -97,6 +97,11 @@ static int key_wakeup_ISR = 0;
 static void __iomem *pmc_base = IO_ADDRESS(TEGRA_PMC_BASE);
 #endif
 
+//20110324, , LP1 powerkey skip issue [START]
+extern bool core_lock_on;
+static int LP1_key_wake = 0;
+//20110324, , LP1 powerkey skip issue [END]
+
 //20101129, , idle current issue [START]
 typedef struct TouchMakerRec
 {
@@ -147,7 +152,7 @@ static void powerkey_handle(struct work_struct *wq)
     // Clear power key wakeup pad bit.
     // Because powerkey interrupt might be called before powerkey_resume() is called.
     // In this case, clear bit not to call power key press at powerkey_resume() function.
-    if (key_wakeup_ISR == 0 )
+    if (key_wakeup_ISR == 0 || LP1_key_wake == 1)
     {
         if( reg & WAKEUP_POWERKEY_MASK){
             printk("[PWR_KEY] wakeup pad clear\n");
@@ -165,6 +170,9 @@ static void powerkey_handle(struct work_struct *wq)
             input_sync(s_powerkey.inputDev);
         }
         key_wakeup_ISR = 1;
+//20110324, , LP1 powerkey skip issue [START]
+        LP1_key_wake = 0;
+//20110324, , LP1 powerkey skip issue [END]
         return;
     }
 #endif
@@ -194,6 +202,11 @@ static void powerkey_interrupt_handler(void* arg)
         return;
     }
     printk("powerkey_interrupt_handler\n");
+//20110324, , LP1 powerkey skip issue [START]
+    if(core_lock_on && key_wakeup_ISR==0){
+        LP1_key_wake = 1;
+    }
+//20110324, , LP1 powerkey skip issue [END]
 #ifdef POWERKEY_DELAYED_WORKQUEUE
     schedule_delayed_work(&powerKeyDevice->work, msecs_to_jiffies(20));
     wake_lock_timeout(&s_powerkey.wlock, msecs_to_jiffies(50));
@@ -456,8 +469,13 @@ static int __devinit powerkey_probe(struct platform_device *pdev)
         printk(KERN_ERR "[star modem_chk] NvOdmGpioOpen Error \n");
         goto err_open_modem_chk_gpio_fail;
     }
+#ifdef CONFIG_MACH_STAR_TMUS
+    port = 'h'-'a';
+    pin = 2;
+#else
     port = 'r'-'a';
     pin = 0;
+#endif
     s_modemCheck.pinHandle = NvOdmGpioAcquirePinHandle(s_modemCheck.gpioHandle, 
                                                     port, pin);
     if (!s_modemCheck.pinHandle)
