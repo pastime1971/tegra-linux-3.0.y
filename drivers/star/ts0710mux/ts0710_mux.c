@@ -246,18 +246,18 @@ struct spi_data_recived_struct {
 struct spi_data_send_struct;
 struct spi_data_send_struct {
     struct spi_data_send_struct *next;
-//LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [Start]	
+//LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [Start]
 //    u8  dlci;
-//LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [End]	
+//LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [End]
     u8 *data;
     int size;
 };
 //LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [Start]
-static LOCK_T frame_nodes_lock = SPIN_LOCK_UNLOCKED;
+static DEFINE_SPINLOCK(frame_nodes_lock);
 static unsigned long lock_flag ;
 //LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [End]
 static struct spi_data_send_struct frame_node[MAX_WAITING_FRAMES];
-static struct spi_data_send_struct *frame_to_send[TS0710MAX_PRIORITY_NUMBER];          
+static struct spi_data_send_struct *frame_to_send[TS0710MAX_PRIORITY_NUMBER];
 static struct spi_data_recived_struct spi_data_recieved;
 static struct task_struct *task;
 static struct task_struct *write_task;
