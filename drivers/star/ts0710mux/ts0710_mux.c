@@ -223,7 +223,7 @@ static volatile struct file * mux_filp[TS0710MAX_CHANNELS];
 static ts0710_con ts0710_connection;
 
 #ifdef LGE_KERNEL_MUX
-static DECLARE_MUTEX(spi_write_sema); /* use semaphore to synchronize different threads*/
+static DEFINE_SEMAPHORE(spi_write_sema); /* use semaphore to synchronize different threads*/
 //LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [Start]
 static struct semaphore spi_write_data_sema[33];
 //LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [End]
