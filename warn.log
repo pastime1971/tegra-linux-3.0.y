@@ -1,0 +1,571 @@
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+arch/arm/mm/init.c: In function ‘mem_init’:
+arch/arm/mm/init.c:675:4: warning: format ‘%08lx’ expects type ‘long unsigned int’, but argument 12 has type ‘unsigned int’
+arch/arm/mach-tegra/timer.c: In function ‘tegra_init_timer’:
+arch/arm/mach-tegra/timer.c:254:15: warning: ‘m’ may be used uninitialized in this function
+arch/arm/mach-tegra/timer.c:254:18: warning: ‘n’ may be used uninitialized in this function
+arch/arm/mach-tegra/gpio.c: In function ‘tegra_gpio_disable_all_irq’:
+arch/arm/mach-tegra/gpio.c:776:6: warning: unused variable ‘val’
+arch/arm/mach-tegra/gpio.c: In function ‘tegra_gpio_resume’:
+arch/arm/mach-tegra/gpio.c:868:12: warning: unused variable ‘i’
+arch/arm/mach-tegra/gpio.c: In function ‘tegra_gpio_suspend’:
+arch/arm/mach-tegra/gpio.c:901:12: warning: unused variable ‘i’
+arch/arm/mach-tegra/gpio.c: In function ‘dbg_set_port’:
+arch/arm/mach-tegra/gpio.c:1224:13: warning: assignment makes integer from pointer without a cast
+arch/arm/mach-tegra/gpio.c: In function ‘dbg_set_mode’:
+arch/arm/mach-tegra/gpio.c:1276:19: warning: assignment makes integer from pointer without a cast
+arch/arm/mach-tegra/gpio.c: At top level:
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+arch/arm/mach-tegra/suspend.c: In function ‘tegra_suspend_enter’:
+arch/arm/mach-tegra/suspend.c:733:6: warning: unused variable ‘irq’
+arch/arm/mach-tegra/suspend.c:729:19: warning: unused variable ‘desc’
+arch/arm/mach-tegra/suspend.c:732:6: warning: ‘mc_data[0]’ may be used uninitialized in this function
+arch/arm/mach-tegra/suspend.c:732:6: warning: ‘mc_data[1]’ may be used uninitialized in this function
+arch/arm/mach-tegra/pinmux.c: In function ‘dbg_set_pinmux_reg_num’:
+arch/arm/mach-tegra/pinmux.c:600:3: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+arch/arm/mach-tegra/pinmux.c:593:13: warning: unused variable ‘len’
+arch/arm/mach-tegra/pinmux.c: In function ‘dbg_get_pinmux_reg_value’:
+arch/arm/mach-tegra/pinmux.c:627:4: warning: format ‘%x’ expects type ‘unsigned int’, but argument 5 has type ‘long unsigned int’
+arch/arm/mach-tegra/pinmux.c:632:4: warning: format ‘%x’ expects type ‘unsigned int’, but argument 5 has type ‘long unsigned int’
+arch/arm/mach-tegra/pinmux.c: In function ‘dbg_set_pinmux_reg_value’:
+arch/arm/mach-tegra/pinmux.c:650:3: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+arch/arm/mach-tegra/pinmux.c:643:13: warning: unused variable ‘len’
+arch/arm/mach-tegra/pinmux.c: In function ‘dbg_get_pingroup_select’:
+arch/arm/mach-tegra/pinmux.c:694:4: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+arch/arm/mach-tegra/pinmux.c:711:4: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+arch/arm/mach-tegra/pinmux.c:722:4: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+arch/arm/mach-tegra/pinmux.c: In function ‘dbg_set_pingroup_select’:
+arch/arm/mach-tegra/pinmux.c:745:13: warning: assignment makes integer from pointer without a cast
+arch/arm/mach-tegra/pinmux.c: In function ‘dbg_get_tristate_enable’:
+arch/arm/mach-tegra/pinmux.c:780:5: warning: format ‘%S’ expects type ‘wchar_t *’, but argument 4 has type ‘const char * const’
+arch/arm/mach-tegra/pinmux.c:785:4: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+arch/arm/mach-tegra/pinmux.c: In function ‘dbg_set_tristate_enable’:
+arch/arm/mach-tegra/pinmux.c:808:3: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+arch/arm/mach-tegra/pinmux.c: In function ‘dbg_get_pinmux_enable’:
+arch/arm/mach-tegra/pinmux.c:840:5: warning: format ‘%S’ expects type ‘wchar_t *’, but argument 4 has type ‘const char * const’
+arch/arm/mach-tegra/pinmux.c:845:4: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+arch/arm/mach-tegra/pinmux.c: In function ‘dbg_set_pinmux_enable’:
+arch/arm/mach-tegra/pinmux.c:877:3: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+arch/arm/mach-tegra/pinmux.c: In function ‘dbg_get_PUPD_enable’:
+arch/arm/mach-tegra/pinmux.c:911:5: warning: format ‘%S’ expects type ‘wchar_t *’, but argument 4 has type ‘const char * const’
+arch/arm/mach-tegra/pinmux.c:916:4: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+arch/arm/mach-tegra/pinmux.c: In function ‘dbg_set_PUPD_enable’:
+arch/arm/mach-tegra/pinmux.c:938:3: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+arch/arm/mach-tegra/pinmux.c: In function ‘tegra_pinmux_debuginit’:
+arch/arm/mach-tegra/pinmux.c:960:2: warning: ISO C90 forbids mixed declarations and code
+arch/arm/mach-tegra/pinmux-t2-tables.c: In function ‘get_reg_data’:
+arch/arm/mach-tegra/pinmux-t2-tables.c:1084:4: warning: format ‘%d’ expects type ‘int’, but argument 2 has type ‘long unsigned int’
+arch/arm/mach-tegra/pinmux-t2-tables.c: In function ‘set_reg_data’:
+arch/arm/mach-tegra/pinmux-t2-tables.c:1140:4: warning: format ‘%x’ expects type ‘unsigned int’, but argument 2 has type ‘long int’
+arch/arm/mach-tegra/pinmux-t2-tables.c:1140:4: warning: format ‘%x’ expects type ‘unsigned int’, but argument 3 has type ‘long int’
+arch/arm/mach-tegra/pinmux-t2-tables.c:1143:4: warning: format ‘%x’ expects type ‘unsigned int’, but argument 2 has type ‘long int’
+arch/arm/mach-tegra/pinmux-t2-tables.c:1148:4: warning: format ‘%x’ expects type ‘unsigned int’, but argument 2 has type ‘long int’
+arch/arm/mach-tegra/pinmux-t2-tables.c:1148:4: warning: format ‘%x’ expects type ‘unsigned int’, but argument 3 has type ‘long int’
+arch/arm/mach-tegra/pinmux-t2-tables.c:1151:4: warning: format ‘%x’ expects type ‘unsigned int’, but argument 2 has type ‘long int’
+arch/arm/mach-tegra/pinmux-t2-tables.c:1156:4: warning: format ‘%x’ expects type ‘unsigned int’, but argument 2 has type ‘long int’
+arch/arm/mach-tegra/pinmux-t2-tables.c:1156:4: warning: format ‘%x’ expects type ‘unsigned int’, but argument 3 has type ‘long int’
+arch/arm/mach-tegra/pinmux-t2-tables.c:1159:4: warning: format ‘%x’ expects type ‘unsigned int’, but argument 2 has type ‘long int’
+arch/arm/mm/alignment.c: In function ‘do_alignment’:
+arch/arm/mm/alignment.c:720:21: warning: ‘offset.un’ may be used uninitialized in this function
+kernel/printk.c:159:6: warning: function declaration isn’t a prototype
+arch/arm/mach-tegra/nvddk/nvddk_nand.c: In function ‘NvDdkNandReadSpare’:
+arch/arm/mach-tegra/nvddk/nvddk_nand.c:3375:29: warning: comparison between ‘ECCAlgorithm’ and ‘enum <anonymous>’
+arch/arm/mach-tegra/nvddk/nvddk_nand.c: In function ‘NvDdkNandWriteSpare’:
+arch/arm/mach-tegra/nvddk/nvddk_nand.c:3436:29: warning: comparison between ‘ECCAlgorithm’ and ‘enum <anonymous>’
+arch/arm/mach-tegra/nvddk/nvddk_nand.c: In function ‘NvDdkNandRead’:
+arch/arm/mach-tegra/nvddk/nvddk_nand.c:3616:30: warning: comparison between ‘ECCAlgorithm’ and ‘enum <anonymous>’
+arch/arm/mach-tegra/nvddk/nvddk_nand.c: In function ‘NvDdkNandWrite’:
+arch/arm/mach-tegra/nvddk/nvddk_nand.c:3813:30: warning: comparison between ‘ECCAlgorithm’ and ‘enum <anonymous>’
+arch/arm/mach-tegra/nvddk/nvddk_nand.c:3819:30: warning: comparison between ‘ECCAlgorithm’ and ‘enum <anonymous>’
+arch/arm/mach-tegra/nvodm/nvodm_services.c: In function ‘NvOdmGpioSetBusState’:
+arch/arm/mach-tegra/nvodm/nvodm_services.c:149:8: warning: unused variable ‘i’
+arch/arm/mach-tegra/nvodm/nvodm_services.c: In function ‘NvOdmServicesPmuGetHookValue’:
+arch/arm/mach-tegra/nvodm/nvodm_services.c:832:1: warning: control reaches end of non-void function
+arch/arm/mach-tegra/nvodm/nvodm_services_os.c:192:1: warning: comparison between ‘enum <anonymous>’ and ‘enum <anonymous>’
+arch/arm/mach-tegra/nvodm/nvodm_services_os.c:193:1: warning: comparison between ‘enum <anonymous>’ and ‘enum <anonymous>’
+arch/arm/mach-tegra/nvrm/core/ap15/ap15rm_clocks.c: In function ‘Ap15EnableModuleClock’:
+arch/arm/mach-tegra/nvrm/core/ap15/ap15rm_clocks.c:139:61: warning: comparison between ‘ModuleClockState’ and ‘enum <anonymous>’
+kernel/sys.c:58:1: warning: function declaration isn’t a prototype
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+arch/arm/mach-tegra/board-nvodm.c:215:1: warning: initialization from incompatible pointer type
+arch/arm/mach-tegra/board-nvodm.c:217:5: warning: function declaration isn’t a prototype
+arch/arm/mach-tegra/board-nvodm.c: In function ‘tegra_setup_rfkill’:
+arch/arm/mach-tegra/board-nvodm.c:1296:4: warning: ISO C90 forbids mixed declarations and code
+arch/arm/mach-tegra/board-nvodm.c:1302:4: warning: ISO C90 forbids mixed declarations and code
+arch/arm/mach-tegra/board-nvodm.c: In function ‘star_init_android_virtualkeys’:
+arch/arm/mach-tegra/board-nvodm.c:1411:1: warning: no return statement in function returning non-void
+arch/arm/mach-tegra/board-nvodm.c: At top level:
+arch/arm/mach-tegra/board-nvodm.c:2355:15: warning: function declaration isn’t a prototype
+arch/arm/mach-tegra/board-nvodm.c: In function ‘sensor_poweron’:
+arch/arm/mach-tegra/board-nvodm.c:2362:2: warning: ISO C90 forbids mixed declarations and code
+arch/arm/mach-tegra/board-nvodm.c: At top level:
+arch/arm/mach-tegra/board-nvodm.c:2425:13: warning: function declaration isn’t a prototype
+arch/arm/mach-tegra/board-nvodm.c: In function ‘sensor_workaround’:
+arch/arm/mach-tegra/board-nvodm.c:2486:1: warning: label ‘done’ defined but not used
+arch/arm/mach-tegra/board-nvodm.c: In function ‘tegra_setup_suspend’:
+arch/arm/mach-tegra/board-nvodm.c:2770:29: warning: comparison between ‘NvOdmSysClockReqPolarity’ and ‘enum <anonymous>’
+arch/arm/mach-tegra/board-nvodm.c: At top level:
+arch/arm/mach-tegra/board-nvodm.c:2894:6: warning: function declaration isn’t a prototype
+arch/arm/mach-tegra/board-nvodm.c:2938:13: warning: function declaration isn’t a prototype
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+arch/arm/mach-tegra/odm_kit/star/adaptations/misc/nvodm_sdio.c: In function ‘NvOdmSdioOpen’:
+arch/arm/mach-tegra/odm_kit/star/adaptations/misc/nvodm_sdio.c:190:12: warning: unused variable ‘Status’
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+arch/arm/mach-tegra/odm_kit/star/adaptations/pmu/max8907/max8907.c: In function ‘Max8907PwrEnAttach’:
+arch/arm/mach-tegra/odm_kit/star/adaptations/pmu/max8907/max8907.c:1709:6: warning: "WAR_AVDD_USB_RESUME_KEEP_ON" is not defined
+arch/arm/mach-tegra/odm_kit/star/adaptations/pmu/max8907/max8907.c: At top level:
+arch/arm/mach-tegra/odm_kit/star/adaptations/pmu/max8907/max8907.c:1270:14: warning: ‘currentPowerState’ defined but not used
+arch/arm/mach-tegra/odm_kit/star/adaptations/pmu/max8907/max8907.c:1271:13: warning: ‘PMUStateDump’ defined but not used
+arch/arm/mach-tegra/odm_kit/star/adaptations/pmu/max8907/max8907.c:1539:1: warning: ‘Max8907SetI2CControlMode’ defined but not used
+arch/arm/mach-tegra/nvrm_user.c:71:8: warning: type defaults to ‘int’ in declaration of ‘NvRmPrivLockSharedPll’
+arch/arm/mach-tegra/nvrm_user.c:71:1: warning: function declaration isn’t a prototype
+arch/arm/mach-tegra/nvrm_user.c:72:8: warning: type defaults to ‘int’ in declaration of ‘NvRmPrivUnlockSharedPll’
+arch/arm/mach-tegra/nvrm_user.c:72:1: warning: function declaration isn’t a prototype
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+In file included from arch/arm/mach-tegra/odm_kit/star/platform/touch/nvodm_touch_synaptics.c:48:0:
+arch/arm/mach-tegra/odm_kit/star/platform/touch/synaptics_ts_firmware.h:1814:13: warning: large integer implicitly truncated to unsigned type
+arch/arm/mach-tegra/odm_kit/star/platform/touch/nvodm_touch_synaptics.c: In function ‘Synaptics_UpgradeFirmware’:
+arch/arm/mach-tegra/odm_kit/star/platform/touch/nvodm_touch_synaptics.c:684:2: warning: ISO C90 forbids mixed declarations and code
+arch/arm/mach-tegra/odm_kit/star/platform/touch/nvodm_touch_cypress.c: In function ‘Cypress_ModeChange’:
+arch/arm/mach-tegra/odm_kit/star/platform/touch/nvodm_touch_cypress.c:669:7: warning: unused variable ‘mode_status’
+arch/arm/mach-tegra/odm_kit/star/query/nvodm_query.c: In function ‘NvOdmQueryGetUsbProperty’:
+arch/arm/mach-tegra/odm_kit/star/query/nvodm_query.c:1364:35: warning: unused variable ‘Usb2NullPhyProperty’
+arch/arm/mach-tegra/odm_kit/star/query/nvodm_query_pinmux.c: In function ‘NvOdmQueryPinMux’:
+arch/arm/mach-tegra/odm_kit/star/query/nvodm_query_pinmux.c:232:5: warning: ‘hKeyList’ is used uninitialized in this function
+arch/arm/mach-tegra/odm_kit/star/query/nvodm_query_gpio.c:84:5: warning: initialization discards qualifiers from pointer target type
+arch/arm/mach-tegra/odm_kit/star/query/nvodm_query_gpio.c:85:5: warning: initialization discards qualifiers from pointer target type
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+arch/arm/mach-tegra/nvrm/core/common/nvrm_pmu.c: In function ‘NvRmPmuGetHookAdc’:
+arch/arm/mach-tegra/nvrm/core/common/nvrm_pmu.c:320:11: warning: unused variable ‘i’
+arch/arm/mach-tegra/nvrm/core/common/nvrm_pmu.c: In function ‘NvRmPmuSetHwPowerOffConfig’:
+arch/arm/mach-tegra/nvrm/core/common/nvrm_pmu.c:335:11: warning: unused variable ‘i’
+drivers/cpuidle/governors/menu.c:128:12: warning: ‘get_loadavg’ defined but not used
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+arch/arm/mach-tegra/nvrm/io/ap15/rm_spi_slink.c:356:13: warning: ‘debug_registers’ defined but not used
+drivers/i2c/busses/i2c-tegra.c: In function ‘tegra_i2c_lock’:
+drivers/i2c/busses/i2c-tegra.c:59:6: warning: comparison of distinct pointer types lacks a cast
+drivers/i2c/busses/i2c-tegra.c: In function ‘tegra_i2c_unlock’:
+drivers/i2c/busses/i2c-tegra.c:73:6: warning: comparison of distinct pointer types lacks a cast
+drivers/i2c/busses/i2c-tegra.c: In function ‘tegra_i2c_probe’:
+drivers/i2c/busses/i2c-tegra.c:257:21: warning: assignment from incompatible pointer type
+drivers/i2c/busses/i2c-tegra.c: At top level:
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+arch/arm/mach-tegra/nvrm/io/ap20/ap20rm_owr.c: In function ‘PrivOwrCheckBitTransferDone’:
+arch/arm/mach-tegra/nvrm/io/ap20/ap20rm_owr.c:193:20: warning: comparison between ‘OwrIntrStatus’ and ‘enum <anonymous>’
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+kernel/async.c: In function ‘async_synchronize_cookie_domain’:
+kernel/async.c:270:10: warning: ‘starttime.tv64’ may be used uninitialized in this function
+kernel/async.c: In function ‘async_run_entry_fn’:
+kernel/async.c:122:10: warning: ‘calltime.tv64’ may be used uninitialized in this function
+arch/arm/mach-tegra/sysfs-fuse.c:90:9: warning: initialization from incompatible pointer type
+arch/arm/mach-tegra/sysfs-fuse.c:91:9: warning: initialization from incompatible pointer type
+arch/arm/mach-tegra/sysfs-fuse.c: In function ‘sysfsfuse_init’:
+arch/arm/mach-tegra/sysfs-fuse.c:474:29: warning: assignment discards qualifiers from pointer target type
+drivers/md/dm.c: In function ‘split_bvec’:
+drivers/md/dm.c:1060:3: warning: statement with no effect
+drivers/md/dm.c: In function ‘clone_bio’:
+drivers/md/dm.c:1087:3: warning: statement with no effect
+drivers/md/dm-table.c: In function ‘dm_table_set_integrity’:
+drivers/md/dm-table.c:1188:3: warning: statement with no effect
+kernel/power/wakelock.c: In function ‘active_wakelock_stats_show’:
+kernel/power/wakelock.c:584:4: warning: suggest parentheses around operand of ‘!’ or change ‘&’ to ‘&&’ or ‘!’ to ‘~’
+kernel/power/wakelock.c:569:6: warning: unused variable ‘ret’
+drivers/misc/lbee9qmb-rfkill.c: In function ‘lbee9qmb_rfkill_set_power’:
+drivers/misc/lbee9qmb-rfkill.c:76:28: warning: unused variable ‘ReturnedPeriod’
+drivers/mmc/host/sdhci-tegra.c:181:2: warning: initialization from incompatible pointer type
+drivers/mmc/host/sdhci-tegra.c:194:2: warning: initialization from incompatible pointer type
+drivers/mmc/host/sdhci-tegra.c: In function ‘tegra_sdhci_suspend’:
+drivers/mmc/host/sdhci-tegra.c:580:6: warning: unused variable ‘ierr’
+drivers/mmc/host/sdhci-tegra.c: At top level:
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+drivers/mtd/devices/tegra_mtd_nand.c: In function ‘tegra_nand_probe’:
+drivers/mtd/devices/tegra_mtd_nand.c:709:30: warning: unused variable ‘plat’
+kernel/trace/trace_events.c: In function ‘ftrace_event_reg’:
+kernel/trace/trace_events.c:152:2: warning: enumeration value ‘TRACE_REG_PERF_REGISTER’ not handled in switch
+kernel/trace/trace_events.c:152:2: warning: enumeration value ‘TRACE_REG_PERF_UNREGISTER’ not handled in switch
+net/dsa/slave.c:51:12: warning: ‘dsa_slave_init’ defined but not used
+net/dsa/slave.c:60:12: warning: ‘dsa_slave_open’ defined but not used
+net/dsa/slave.c:98:12: warning: ‘dsa_slave_close’ defined but not used
+net/dsa/slave.c:116:13: warning: ‘dsa_slave_change_rx_flags’ defined but not used
+net/dsa/slave.c:127:13: warning: ‘dsa_slave_set_rx_mode’ defined but not used
+net/dsa/slave.c:136:12: warning: ‘dsa_slave_set_mac_address’ defined but not used
+net/dsa/slave.c:164:12: warning: ‘dsa_slave_ioctl’ defined but not used
+drivers/regulator/tegra-regulator.c:158:2: warning: initialization from incompatible pointer type
+drivers/rtc/drm-dev.c: In function ‘drm_dev_init’:
+drivers/rtc/drm-dev.c:102:6: warning: unused variable ‘i’
+drivers/rtc/rtc-tegra-odm.c: In function ‘tegra_rtc_set_time’:
+drivers/rtc/rtc-tegra-odm.c:78:2: warning: passing argument 2 of ‘NvOdmPmuReadRtc’ from incompatible pointer type
+arch/arm/mach-tegra/include/nvodm_pmu.h:465:1: note: expected ‘NvU32 *’ but argument is of type ‘long unsigned int *’
+net/ipv4/tcp.c: In function ‘tcp_nuke_addr’:
+net/ipv4/tcp.c:3355:18: warning: ‘in’ may be used uninitialized in this function
+net/ipv4/tcp.c:3357:19: warning: ‘in6’ may be used uninitialized in this function
+drivers/spi/ifx_n721_spi.c:93:5: warning: "CONFIG_LPRINTK" is not defined
+drivers/spi/ifx_n721_spi.c: In function ‘ifx_spi_write’:
+drivers/spi/ifx_n721_spi.c:289:15: warning: unused variable ‘value’
+drivers/spi/ifx_n721_spi.c: At top level:
+drivers/spi/ifx_n721_spi.c:504:35: warning: ‘struct platform_device’ declared inside parameter list
+drivers/spi/ifx_n721_spi.c:504:35: warning: its scope is only this definition or declaration, which is probably not what you want
+drivers/spi/ifx_n721_spi.c:520:34: warning: ‘struct platform_device’ declared inside parameter list
+drivers/spi/ifx_n721_spi.c: In function ‘ifx_spi_resume’:
+drivers/spi/ifx_n721_spi.c:522:13: warning: unused variable ‘pinValue’
+drivers/spi/ifx_n721_spi.c: At top level:
+drivers/spi/ifx_n721_spi.c:560:2: warning: initialization from incompatible pointer type
+drivers/spi/ifx_n721_spi.c:561:2: warning: initialization from incompatible pointer type
+drivers/spi/ifx_n721_spi.c:192:27: warning: ‘hSrdyPin’ defined but not used
+drivers/spi/ifx_n721_spi.c:193:36: warning: ‘hSrdyInterrupt’ defined but not used
+drivers/staging/android/ram_console.c: In function ‘ram_console_driver_probe’:
+drivers/staging/android/ram_console.c:387:8: warning: format ‘%x’ expects type ‘unsigned int’, but argument 2 has type ‘void *’
+drivers/staging/android/ram_console.c:388:8: warning: format ‘%x’ expects type ‘unsigned int’, but argument 2 has type ‘void *’
+drivers/staging/android/ram_console.c:355:16: warning: unused variable ‘reserved_size’
+drivers/star/star_battery_charger.c: In function ‘star_capacity_from_voltage_via_calculate’:
+drivers/star/star_battery_charger.c:784:5: warning: this decimal constant is unsigned only in ISO C90
+drivers/star/star_battery_charger.c:788:4: warning: this decimal constant is unsigned only in ISO C90
+drivers/star/star_battery_charger.c:792:4: warning: this decimal constant is unsigned only in ISO C90
+drivers/star/star_battery_charger.c:796:4: warning: this decimal constant is unsigned only in ISO C90
+drivers/star/star_battery_charger.c:800:4: warning: this decimal constant is unsigned only in ISO C90
+drivers/star/star_battery_charger.c:807:5: warning: this decimal constant is unsigned only in ISO C90
+drivers/star/star_battery_charger.c:823:5: warning: this decimal constant is unsigned only in ISO C90
+drivers/star/star_battery_charger.c:827:4: warning: this decimal constant is unsigned only in ISO C90
+drivers/star/star_battery_charger.c:831:4: warning: this decimal constant is unsigned only in ISO C90
+drivers/star/star_battery_charger.c:835:4: warning: this decimal constant is unsigned only in ISO C90
+drivers/star/star_battery_charger.c:839:4: warning: this decimal constant is unsigned only in ISO C90
+drivers/star/star_battery_charger.c:843:4: warning: this decimal constant is unsigned only in ISO C90
+drivers/star/star_battery_charger.c:850:5: warning: this decimal constant is unsigned only in ISO C90
+drivers/star/star_battery_charger.c: In function ‘star_gauge_follower_func’:
+drivers/star/star_battery_charger.c:2449:8: warning: unused variable ‘gauge_follower_time_mask’
+drivers/star/star_battery_charger.c:2448:8: warning: unused variable ‘gauge_follower_time’
+drivers/star/star_battery_charger.c: In function ‘tegra_battery_shutdown’:
+drivers/star/star_battery_charger.c:3254:9: warning: unused variable ‘i’
+drivers/star/star_battery_charger.c: At top level:
+drivers/star/star_battery_charger.c:861:13: warning: ‘true_valid_cbc_process’ defined but not used
+drivers/star/star_battery_charger.c:1821:15: warning: ‘capacity_with_charger_source_USB’ defined but not used
+drivers/star/star_battery_charger.c:1877:15: warning: ‘capacity_with_charger_source_TA’ defined but not used
+drivers/star/star_battery_charger.c:1933:15: warning: ‘capacity_without_charger_source’ defined but not used
+drivers/star/star_battery_charger.c: In function ‘star_charger_disable_ok_check’:
+drivers/star/star_battery_charger.c:1144:1: warning: control reaches end of non-void function
+drivers/star/star_muic.c:124:8: warning: type defaults to ‘int’ in declaration of ‘star_shutdown’
+drivers/star/star_muic.c: In function ‘muic_probe’:
+drivers/star/star_muic.c:1315:15: warning: unused variable ‘ret’
+drivers/star/star_muic.c: At top level:
+drivers/star/star_muic.c:1527:13: warning: ‘muic_shutdown’ defined but not used
+drivers/star/star_proximity.c: In function ‘star_proxi_read_reg’:
+drivers/star/star_proximity.c:134:32: warning: assignment from incompatible pointer type
+drivers/star/star_proximity.c: At top level:
+drivers/star/star_proximity.c:484:8: warning: initialization from incompatible pointer type
+drivers/star/star_proximity.c:485:8: warning: initialization from incompatible pointer type
+drivers/star/star_proximity.c:486:8: warning: initialization from incompatible pointer type
+drivers/star/star_proximity.c: In function ‘proximity_probe’:
+drivers/star/star_proximity.c:507:15: warning: unused variable ‘pinvalue’
+drivers/star/star_proximity.c: At top level:
+drivers/star/star_proximity.c:177:13: warning: ‘star_proxi_power_onoff’ defined but not used
+drivers/star/star_proximity.c:201:13: warning: ‘star_proxi_vddio_vi_power_onoff’ defined but not used
+drivers/star/star_proximity.c: In function ‘star_proxi_workqueue_func’:
+drivers/star/star_proximity.c:289:7: warning: ‘status’ may be used uninitialized in this function
+drivers/star/star_powerkey.c:252:8: warning: initialization from incompatible pointer type
+drivers/star/star_powerkey.c:270:8: warning: initialization from incompatible pointer type
+drivers/star/star_powerkey.c: In function ‘star_reset_show’:
+drivers/star/star_powerkey.c:313:17: warning: assignment makes integer from pointer without a cast
+drivers/star/star_powerkey.c:313:35: warning: assignment makes integer from pointer without a cast
+drivers/star/star_powerkey.c:326:17: warning: assignment makes integer from pointer without a cast
+drivers/star/star_powerkey.c:331:17: warning: assignment makes integer from pointer without a cast
+drivers/star/star_powerkey.c:336:17: warning: assignment makes integer from pointer without a cast
+drivers/star/star_powerkey.c:336:35: warning: assignment makes integer from pointer without a cast
+drivers/star/star_powerkey.c:344:8: warning: passing argument 2 of ‘memset’ makes integer from pointer without a cast
+/home/android/android/lge-kernel-3.0-tegra/arch/arm/include/asm/string.h:25:15: note: expected ‘int’ but argument is of type ‘void *’
+drivers/star/star_powerkey.c: In function ‘star_reset_store’:
+drivers/star/star_powerkey.c:358:5: warning: initialization makes integer from pointer without a cast
+drivers/star/star_powerkey.c: At top level:
+drivers/star/star_powerkey.c:365:8: warning: initialization from incompatible pointer type
+drivers/star/star_powerkey.c:379:1: warning: function declaration isn’t a prototype
+drivers/star/star_powerkey.c: In function ‘star_poweroff_store’:
+drivers/star/star_powerkey.c:384:5: warning: initialization makes integer from pointer without a cast
+drivers/star/star_powerkey.c: At top level:
+drivers/star/star_powerkey.c:401:8: warning: initialization from incompatible pointer type
+drivers/star/star_touch_led.c: In function ‘star_pulse_queue’:
+drivers/star/star_touch_led.c:139:9: warning: ISO C90 forbids mixed declarations and code
+drivers/star/star_touch_led.c: At top level:
+drivers/star/star_touch_led.c:226:8: warning: initialization from incompatible pointer type
+drivers/star/star_touch_led.c: In function ‘star_pulseint_store’:
+drivers/star/star_touch_led.c:277:1: warning: no return statement in function returning non-void
+drivers/star/star_hdmi_reg.c: In function ‘hdmi_reg_probe’:
+drivers/star/star_hdmi_reg.c:64:9: warning: unused variable ‘ret’
+drivers/star/headset_det.c:93:1: warning: function declaration isn’t a prototype
+drivers/star/headset_det.c:94:1: warning: function declaration isn’t a prototype
+drivers/star/headset_det.c:95:1: warning: function declaration isn’t a prototype
+drivers/star/headset_det.c: In function ‘headset_int_handler’:
+drivers/star/headset_det.c:409:2: warning: ISO C90 forbids mixed declarations and code
+drivers/star/headset_det.c:419:9: warning: passing argument 1 of ‘schedule_work’ from incompatible pointer type
+include/linux/workqueue.h:360:12: note: expected ‘struct work_struct *’ but argument is of type ‘struct delayed_work *’
+drivers/star/headset_det.c: In function ‘headset_hook_int_handler’:
+drivers/star/headset_det.c:444:2: warning: ISO C90 forbids mixed declarations and code
+drivers/star/headset_det.c:456:13: warning: passing argument 1 of ‘schedule_work’ from incompatible pointer type
+include/linux/workqueue.h:360:12: note: expected ‘struct work_struct *’ but argument is of type ‘struct delayed_work *’
+drivers/star/headset_det.c: In function ‘switch_gpio_print_state’:
+drivers/star/headset_det.c:477:2: warning: ISO C90 forbids mixed declarations and code
+drivers/star/headset_det.c: In function ‘headsetdet_probe’:
+drivers/star/headset_det.c:570:11: warning: unused variable ‘I2cInstance’
+drivers/star/headset_det.c: In function ‘headset_shutdown’:
+drivers/star/headset_det.c:751:2: warning: ISO C90 forbids mixed declarations and code
+drivers/star/headset_det.c:751:30: warning: unused variable ‘switch_data’
+drivers/star/headset_det.c: In function ‘headsetdet_remove’:
+drivers/star/headset_det.c:813:5: warning: ISO C90 forbids mixed declarations and code
+drivers/star/sensor/ami304_compass.c:163:5: warning: function declaration isn’t a prototype
+drivers/star/sensor/ami304_compass.c: In function ‘AMI304_Reset_Init’:
+drivers/star/sensor/ami304_compass.c:167:19: warning: unused variable ‘ctrl3’
+drivers/star/sensor/ami304_compass.c:167:12: warning: unused variable ‘ctrl2’
+drivers/star/sensor/ami304_compass.c:167:5: warning: unused variable ‘ctrl1’
+drivers/star/sensor/ami304_compass.c:166:7: warning: unused variable ‘regaddr’
+drivers/star/sensor/ami304_compass.c: In function ‘AMI304_ReadSensorData’:
+drivers/star/sensor/ami304_compass.c:313:7: warning: unused variable ‘cmd’
+drivers/star/sensor/ami304_compass.c: At top level:
+drivers/star/sensor/ami304_compass.c:450:5: warning: function declaration isn’t a prototype
+drivers/star/sensor/ami304_compass.c: In function ‘ami304hal_open’:
+drivers/star/sensor/ami304_compass.c:854:2: warning: value computed is not used
+drivers/star/sensor/ami304_compass.c: In function ‘ami304hal_release’:
+drivers/star/sensor/ami304_compass.c:864:2: warning: value computed is not used
+drivers/star/sensor/ami304_compass.c: In function ‘ami304_probe’:
+drivers/star/sensor/ami304_compass.c:1131:1: warning: label ‘exit’ defined but not used
+drivers/star/sensor/ami304_compass.c:1124:1: warning: label ‘exit_input_dev_alloc_failed’ defined but not used
+drivers/star/sensor/ami304_compass.c:996:21: warning: unused variable ‘new_client’
+drivers/star/sensor/ami304_compass.c: In function ‘ami304_remove’:
+drivers/star/sensor/ami304_compass.c:1183:6: warning: unused variable ‘err’
+drivers/star/sensor/ami304_compass.c: At top level:
+drivers/star/sensor/ami304_compass.c:87:26: warning: ‘compass_input_dev’ defined but not used
+drivers/star/sensor/ami304_compass.c: In function ‘tegra_compass_hw_init’:
+drivers/star/sensor/ami304_compass.c:280:1: warning: control reaches end of non-void function
+drivers/star/sensor/nvodm_compass_ami304.c: In function ‘NvOdmCompassOpen’:
+drivers/star/sensor/nvodm_compass_ami304.c:466:11: warning: unused variable ‘reg_val’
+drivers/star/sensor/nvodm_compass_ami304.c: In function ‘NvOdmCompassGetMagnetic’:
+drivers/star/sensor/nvodm_compass_ami304.c:761:21: warning: unused variable ‘range’
+drivers/star/sensor/nvodm_compass_ami304.c:761:8: warning: unused variable ‘sensitivity’
+drivers/star/sensor/nvodm_compass_ami304.c:760:23: warning: unused variable ‘z_sign’
+drivers/star/sensor/nvodm_compass_ami304.c:760:15: warning: unused variable ‘y_sign’
+drivers/star/sensor/nvodm_compass_ami304.c:759:8: warning: unused variable ‘data_L’
+drivers/star/sensor/nvodm_compass_ami304.c:758:13: warning: unused variable ‘G_range’
+drivers/star/sensor/nvodm_compass_ami304.c:758:8: warning: unused variable ‘Res’
+drivers/star/sensor/gyro_accel.c:149:1: warning: function declaration isn’t a prototype
+drivers/star/sensor/gyro_accel.c:154:1: warning: function declaration isn’t a prototype
+drivers/star/sensor/gyro_accel.c: In function ‘motion_sensor_power_on’:
+drivers/star/sensor/gyro_accel.c:400:19: warning: unused variable ‘ctrl3’
+drivers/star/sensor/gyro_accel.c:400:12: warning: unused variable ‘ctrl2’
+drivers/star/sensor/gyro_accel.c:400:5: warning: unused variable ‘ctrl1’
+drivers/star/sensor/gyro_accel.c:399:5: warning: unused variable ‘databuf’
+drivers/star/sensor/gyro_accel.c:398:6: warning: unused variable ‘err’
+drivers/star/sensor/gyro_accel.c: In function ‘motion_sensor_power_off’:
+drivers/star/sensor/gyro_accel.c:429:12: warning: unused variable ‘ctrl3’
+drivers/star/sensor/gyro_accel.c:429:5: warning: unused variable ‘ctrl1’
+drivers/star/sensor/gyro_accel.c:428:5: warning: unused variable ‘databuf’
+drivers/star/sensor/gyro_accel.c:427:6: warning: unused variable ‘err’
+drivers/star/sensor/gyro_accel.c: In function ‘motion_accel_work_func’:
+drivers/star/sensor/gyro_accel.c:637:5: warning: unused variable ‘raw_data’
+drivers/star/sensor/gyro_accel.c: In function ‘motion_tilt_work_func’:
+drivers/star/sensor/gyro_accel.c:656:6: warning: unused variable ‘i’
+drivers/star/sensor/gyro_accel.c: In function ‘motion_shake_onoff_show’:
+drivers/star/sensor/gyro_accel.c:954:2: warning: passing argument 1 of ‘sprintf’ discards qualifiers from pointer target type
+include/linux/kernel.h:291:12: note: expected ‘char *’ but argument is of type ‘const char *’
+drivers/star/sensor/gyro_accel.c: In function ‘motion_snap_onoff_show’:
+drivers/star/sensor/gyro_accel.c:976:2: warning: passing argument 1 of ‘sprintf’ discards qualifiers from pointer target type
+include/linux/kernel.h:291:12: note: expected ‘char *’ but argument is of type ‘const char *’
+drivers/star/sensor/gyro_accel.c: At top level:
+drivers/star/sensor/gyro_accel.c:1209:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1209:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1210:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1210:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1211:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1211:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1212:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1212:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1213:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1213:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1214:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1214:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1215:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1216:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1217:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1217:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1219:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1219:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1220:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1220:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1221:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1221:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1231:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c:1231:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel.c: In function ‘star_motion_ioctl’:
+drivers/star/sensor/gyro_accel.c:1574:10: warning: the address of ‘accelrwbuf’ will always evaluate as ‘true’
+drivers/star/sensor/gyro_accel.c:1286:16: warning: unused variable ‘value’
+drivers/star/sensor/gyro_accel.c:1285:16: warning: unused variable ‘tempbuf’
+drivers/star/sensor/gyro_accel.c:1284:16: warning: unused variable ‘data’
+drivers/star/sensor/gyro_accel.c: In function ‘star_accel_ioctl’:
+drivers/star/sensor/gyro_accel.c:1774:22: warning: unused variable ‘z’
+drivers/star/sensor/gyro_accel.c:1774:15: warning: unused variable ‘y’
+drivers/star/sensor/gyro_accel.c:1774:8: warning: unused variable ‘x’
+drivers/star/sensor/gyro_accel.c: In function ‘mpu3050_i2c_through_pass_internal’:
+drivers/star/sensor/gyro_accel.c:1975:16: warning: unused variable ‘buf’
+drivers/star/sensor/gyro_accel.c:1974:16: warning: unused variable ‘value’
+drivers/star/sensor/gyro_accel.c: In function ‘mpu3050_initialize’:
+drivers/star/sensor/gyro_accel.c:2065:6: warning: unused variable ‘status’
+drivers/star/sensor/gyro_accel.c:2064:16: warning: unused variable ‘value’
+drivers/star/sensor/gyro_accel.c:2063:16: warning: unused variable ‘buf’
+drivers/star/sensor/gyro_accel.c: In function ‘star_motion_probe’:
+drivers/star/sensor/gyro_accel.c:2130:20: warning: unused variable ‘input_dev’
+drivers/star/sensor/gyro_accel.c:2127:16: warning: unused variable ‘value’
+drivers/star/sensor/gyro_accel.c: At top level:
+drivers/star/sensor/gyro_accel.c:2586:8: warning: function declaration isn’t a prototype
+drivers/star/sensor/gyro_accel.c:2591:6: warning: function declaration isn’t a prototype
+drivers/star/sensor/gyro_accel.c: In function ‘star_set_i2c_busy’:
+drivers/star/sensor/gyro_accel.c:2594:2: warning: ‘return’ with a value, in function returning void
+drivers/star/sensor/gyro_accel.c: At top level:
+drivers/star/sensor/gyro_accel.c:2597:6: warning: function declaration isn’t a prototype
+drivers/star/sensor/gyro_accel.c: In function ‘star_unset_i2c_busy’:
+drivers/star/sensor/gyro_accel.c:2600:2: warning: ‘return’ with a value, in function returning void
+drivers/star/sensor/gyro_accel.c: At top level:
+drivers/star/sensor/gyro_accel.c:67:30: warning: ‘star_motion_reg’ defined but not used
+drivers/star/sensor/gyro_accel.c:68:29: warning: ‘star_gyro_vio_reg’ defined but not used
+drivers/star/sensor/gyro_accel.c:84:17: warning: ‘jsr256_flag’ defined but not used
+drivers/star/sensor/gyro_accel.c:143:13: warning: ‘flip_test_count’ defined but not used
+drivers/star/sensor/gyro_accel.c:144:13: warning: ‘gyro_sleep_mode’ defined but not used
+drivers/star/sensor/gyro_accel.c:1280:12: warning: ‘count’ defined but not used
+drivers/star/sensor/gyro_accel.c: In function ‘lge_sensor_shoutdown_all’:
+drivers/star/sensor/gyro_accel.c:355:1: warning: control reaches end of non-void function
+drivers/star/sensor/gyro_accel.c: In function ‘star_accel_ioctl’:
+drivers/star/sensor/gyro_accel.c:1790:7: warning: ‘err’ may be used uninitialized in this function
+drivers/star/sensor/gyro_accel_kxtf9.c:174:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel_kxtf9.c:174:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel_kxtf9.c:175:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel_kxtf9.c:175:8: warning: initialization from incompatible pointer type
+drivers/star/sensor/gyro_accel_kxtf9.c: In function ‘kxtf9_get_acceleration_data_test’:
+drivers/star/sensor/gyro_accel_kxtf9.c:339:6: warning: unused variable ‘xyz_cnt’
+drivers/star/sensor/gyro_accel_kxtf9.c:335:22: warning: unused variable ‘z_sign’
+drivers/star/sensor/gyro_accel_kxtf9.c:335:14: warning: unused variable ‘y_sign’
+drivers/star/sensor/gyro_accel_kxtf9.c:335:6: warning: unused variable ‘x_sign’
+drivers/star/sensor/gyro_accel_kxtf9.c:334:17: warning: unused variable ‘sensitivity’
+drivers/star/sensor/gyro_accel_kxtf9.c:331:6: warning: unused variable ‘err’
+drivers/star/sensor/gyro_accel_kxtf9.c: In function ‘star_accel_whoami’:
+drivers/star/sensor/gyro_accel_kxtf9.c:490:0: warning: "WHO_AM_I" redefined
+drivers/star/sensor/gyro_accel_kxtf9.c:35:0: note: this is the location of the previous definition
+drivers/star/sensor/gyro_accel_kxtf9.c: In function ‘lge_sensor_shutdown_kxtf9’:
+drivers/star/sensor/gyro_accel_kxtf9.c:555:6: warning: unused variable ‘err’
+drivers/star/sensor/gyro_accel_kxtf9.c: In function ‘lge_sensor_restart_kxtf9’:
+drivers/star/sensor/gyro_accel_kxtf9.c:597:6: warning: unused variable ‘err’
+drivers/star/sensor/gyro_accel_kxtf9.c: In function ‘star_accel_misc_ioctl’:
+drivers/star/sensor/gyro_accel_kxtf9.c:650:6: warning: unused variable ‘xyz’
+drivers/star/sensor/gyro_accel_kxtf9.c:649:18: warning: unused variable ‘z’
+drivers/star/sensor/gyro_accel_kxtf9.c:649:13: warning: unused variable ‘y’
+drivers/star/sensor/gyro_accel_kxtf9.c:649:8: warning: unused variable ‘x’
+drivers/star/sensor/gyro_accel_kxtf9.c:648:15: warning: unused variable ‘argp’
+drivers/star/sensor/gyro_accel_kxtf9.c: In function ‘tegra_accel_hw_init’:
+drivers/star/sensor/gyro_accel_kxtf9.c:685:5: warning: unused variable ‘buf’
+drivers/star/sensor/gyro_accel_kxtf9.c:684:6: warning: unused variable ‘err’
+drivers/star/sensor/gyro_accel_kxtf9.c: In function ‘star_accel_probe’:
+drivers/star/sensor/gyro_accel_kxtf9.c:1269:5: warning: "DEBUG" is not defined
+drivers/star/sensor/gyro_accel_kxtf9.c:1156:16: warning: unused variable ‘reg_val’
+drivers/star/sensor/gyro_accel_kxtf9.c:1155:16: warning: unused variable ‘ctr_val’
+drivers/star/sensor/gyro_accel_kxtf9.c:1154:16: warning: unused variable ‘ctr_reg’
+drivers/star/sensor/gyro_accel_kxtf9.c: At top level:
+drivers/star/sensor/gyro_accel_kxtf9.c:278:13: warning: ‘star_accel_set_sample_rate’ defined but not used
+drivers/star/sensor/gyro_accel_kxtf9.c:488:13: warning: ‘star_accel_whoami’ defined but not used
+drivers/star/sensor/nvodm_gyro_accel.c: In function ‘NvOdmGyroAccelGetParameter’:
+drivers/star/sensor/nvodm_gyro_accel.c:127:2: warning: format ‘%x’ expects type ‘unsigned int’, but argument 3 has type ‘NvU32 *’
+drivers/star/sensor/nvodm_gyro_accel.c: In function ‘NvGyroAccelGetInterruptSouce’:
+drivers/star/sensor/nvodm_gyro_accel.c:169:11: warning: unused variable ‘reg_val’
+drivers/star/sensor/nvodm_gyro_accel.c: In function ‘NvOdmGyroAccelOpen’:
+drivers/star/sensor/nvodm_gyro_accel.c:418:11: warning: unused variable ‘reg_val’
+drivers/star/sensor/nvodm_accelerometer_accel_kxtf9.c: In function ‘NvOdmAccelerometerGetParameter’:
+drivers/star/sensor/nvodm_accelerometer_accel_kxtf9.c:279:2: warning: format ‘%x’ expects type ‘unsigned int’, but argument 3 has type ‘NvU32 *’
+drivers/star/sensor/nvodm_accelerometer_accel_kxtf9.c: In function ‘NvOdmAccelOpen’:
+drivers/star/sensor/nvodm_accelerometer_accel_kxtf9.c:541:11: warning: unused variable ‘reg_val’
+drivers/star/sensor/nvodm_accelerometer_accel_kxtf9.c: In function ‘NvOdmAccelGetAcceleration’:
+drivers/star/sensor/nvodm_accelerometer_accel_kxtf9.c:932:21: warning: ‘range’ may be used uninitialized in this function
+drivers/star/ts0710mux/ts0710_mux.c:402:13: warning: function declaration isn’t a prototype
+drivers/star/ts0710mux/ts0710_mux.c: In function ‘mux_send_frame’:
+drivers/star/ts0710mux/ts0710_mux.c:509:3: warning: case value ‘79’ not in enumerated type ‘enum mux_frametype’
+drivers/star/ts0710mux/ts0710_mux.c: In function ‘mux_close’:
+drivers/star/ts0710mux/ts0710_mux.c:1422:14: warning: unused variable ‘ts0710’
+drivers/star/ts0710mux/ts0710_mux.c: In function ‘ts_ldisc_close’:
+drivers/star/ts0710mux/ts0710_mux.c:2227:6: warning: unused variable ‘j’
+drivers/star/ts0710mux/ts0710_mux.c:2225:15: warning: unused variable ‘ts0710’
+drivers/star/ts0710mux/ts0710_mux.c: In function ‘mux_init’:
+drivers/star/ts0710mux/ts0710_mux.c:2417:2: warning: suggest parentheses around assignment used as truth value
+drivers/star/ts0710mux/ts0710_mux.c:2425:2: warning: suggest parentheses around assignment used as truth value
+drivers/star/ts0710mux/ts0710_mux.c: At top level:
+drivers/star/ts0710mux/ts0710_mux.c:1913:13: warning: ‘send_ack’ defined but not used
+drivers/star/ts0710mux/ts0710_mux.c:122:21: warning: ‘s_wake_lock_flag’ defined but not used
+drivers/star/ts0710mux/ts0710_mux.c:484:12: warning: ‘mux_fcs_check’ defined but not used
+drivers/star/ts0710mux/ts0710_mux.c:903:13: warning: ‘ts0710_flow_off’ defined but not used
+drivers/star/ts0710mux/ts0710_mux.c:1202:13: warning: ‘ts0710_close_channel’ defined but not used
+drivers/star/rindrv.c: In function ‘rin_open’:
+drivers/star/rindrv.c:774:3: warning: format ‘%x’ expects type ‘unsigned int’, but argument 4 has type ‘struct net_device *’
+drivers/star/rindrv.c:781:4: warning: format ‘%x’ expects type ‘unsigned int’, but argument 4 has type ‘struct net_device *’
+drivers/star/rindrv.c: In function ‘rin_ioctl’:
+drivers/star/rindrv.c:905:14: warning: unused variable ‘p’
+drivers/star/rindrv.c: In function ‘rin_tx_task’:
+drivers/star/rindrv.c:260:20: warning: ‘count’ may be used uninitialized in this function
+drivers/star/rindrv.c:230:14: note: ‘count’ was declared here
+drivers/star/star_wm8994.c: In function ‘wm8994_reg_store’:
+drivers/star/star_wm8994.c:164:3: warning: assignment discards qualifiers from pointer target type
+drivers/star/star_wm8994.c:165:3: warning: assignment discards qualifiers from pointer target type
+drivers/star/star_hall.c: In function ‘star_hall_sensing_store’:
+drivers/star/star_hall.c:104:1: warning: no return statement in function returning non-void
+drivers/star/star_hall.c: At top level:
+drivers/star/star_hall.c:128:8: warning: initialization from incompatible pointer type
+drivers/star/star_hall.c:129:8: warning: initialization from incompatible pointer type
+drivers/star/star_bl.c:271:5: warning: "ORIGINAL_ALC_VALUES" is not defined
+drivers/star/star_bl.c:1051:8: warning: initialization from incompatible pointer type
+drivers/star/star_bl.c:1066:2: warning: initialization from incompatible pointer type
+drivers/star/star_bl.c:971:1: warning: ‘star_bl_show_foff’ defined but not used
+drivers/star/star_bl.c: In function ‘star_show_panel_info’:
+drivers/star/star_bl.c:1006:10: warning: ‘rval’ may be used uninitialized in this function
+drivers/star/star_ats.c:55:5: warning: function declaration isn’t a prototype
+drivers/star/lge_ats_event_log.c:49:1: warning: function declaration isn’t a prototype
+drivers/star/lge_ats_event_log.c: In function ‘event_log_mask’:
+drivers/star/lge_ats_event_log.c:314:1: warning: control reaches end of non-void function
+drivers/star/star_bd_address.c: In function ‘bd_address_store’:
+drivers/star/star_bd_address.c:34:2: warning: format ‘%s’ expects type ‘char *’, but argument 3 has type ‘char (*)[13]’
+drivers/star/star_bd_address.c: In function ‘bd_address_show’:
+drivers/star/star_bd_address.c:50:4: warning: passing argument 1 of ‘sprintf’ discards qualifiers from pointer target type
+include/linux/kernel.h:291:12: note: expected ‘char *’ but argument is of type ‘const char *’
+drivers/star/star_bd_address.c: At top level:
+drivers/star/star_bd_address.c:53:8: warning: initialization from incompatible pointer type
+drivers/star/star_vib.c: In function ‘star_vib_stay_store’:
+drivers/star/star_vib.c:224:2: warning: format ‘%ld’ expects type ‘long int *’, but argument 3 has type ‘int *’
+drivers/star/star_vib.c: In function ‘star_vib_onoff_store’:
+drivers/star/star_vib.c:271:15: warning: unused variable ‘timeout’
+drivers/star/star_vib.c: At top level:
+drivers/star/star_vib.c:338:8: warning: initialization from incompatible pointer type
+drivers/star/star_vib.c:339:8: warning: initialization from incompatible pointer type
+drivers/star/star_vib.c:44:13: warning: ‘star_vib_work_func’ defined but not used
+arch/arm/mach-tegra/include/mach/pinmux.h:170:29: warning: ‘pg_readl’ declared ‘static’ but never defined
+arch/arm/mach-tegra/include/mach/pinmux.h:171:20: warning: ‘pg_writel’ declared ‘static’ but never defined
+drivers/video/tegra/nvmap.c: In function ‘_nvmap_carveout_do_compact’:
+drivers/video/tegra/nvmap.c:2136:6: warning: unused variable ‘relocate_fail_pin_count_prev’
+drivers/video/tegra/nvmap.c:2135:6: warning: unused variable ‘relocate_fail_mem_count_prev’
+drivers/video/tegra/nvmap.c:2134:6: warning: unused variable ‘compact_kbytes_count_prev’
+drivers/video/tegra/nvmap.c: In function ‘_nvmap_carveout_do_alloc’:
+drivers/video/tegra/nvmap.c:2282:2: warning: ISO C90 forbids mixed declarations and code
+drivers/video/tegra/nvmap.c:2280:7: warning: unused variable ‘enough_free_space’
+drivers/video/tegra/nvmap.c: In function ‘_nvmap_do_cache_maint’:
+drivers/video/tegra/nvmap.c:2816:16: warning: assignment from incompatible pointer type
+drivers/video/tegra/nvmap.c:2822:16: warning: assignment from incompatible pointer type
+drivers/video/tegra/nvmap.c:2828:16: warning: assignment from incompatible pointer type
