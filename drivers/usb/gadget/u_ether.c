@@ -253,7 +253,7 @@ rx_submit(struct eth_dev *dev, struct usb_request *req, gfp_t gfp_flags)
 	 * but on at least one, checksumming fails otherwise.  Note:
 	 * RNDIS headers involve variable numbers of LE32 values.
 	 */
-   /*
+    /*
      * RX: Do not move data by IP_ALIGN:
      * if your DMA controller cannot handle it
      */
