@@ -107,8 +107,8 @@ typedef const struct si_pub  si_t;
 
 #include <linux/rtnetlink.h>
 
-#define WL_IW_USE_ISCAN  0
-#define ENABLE_ACTIVE_PASSIVE_SCAN_SUPPRESS  0
+#define WL_IW_USE_ISCAN  1
+#define ENABLE_ACTIVE_PASSIVE_SCAN_SUPPRESS  1
 
 
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 25)) && 1
@@ -1978,10 +1978,8 @@ wl_iw_control_wl_off_softap(
 
 #if defined(WL_IW_USE_ISCAN)
 		
-#ifndef CSCAN
 		wl_iw_free_ss_cache();
 		wl_iw_run_ss_cache_timer(0);
-#endif
 		memset(g_scan, 0, G_SCAN_RESULTS);
 		
 		g_ss_cache_ctrl.m_link_down = 1;
@@ -2332,7 +2330,7 @@ static int iwpriv_get_assoc_list(struct net_device *dev,
 	p_mac_str_end = &mac_lst[sizeof(mac_lst)-1];
 
 	for (i = 0; i < 8; i++) {
-		struct ether_addr *id = &(*(struct ether_addr **)&sta_maclist->ea)[i];
+		struct ether_addr *id = sta_maclist[i].ea;
 		if (!ETHER_ISNULLADDR(id->octet)) {
 			scb_val_t scb_val;
 			int rssi = 0;
