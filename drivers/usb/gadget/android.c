@@ -244,7 +244,7 @@ static int acm_function_bind_config(struct android_usb_function *f, struct usb_c
 	int ret = 0;
 	struct acm_function_config *config = f->config;
 
-#if defined(CONFIG_MACH_STAR)
+#if !defined(CONFIG_MACH_STAR)
 	for (i = 0; i < config->instances; i++) {
 		ret = acm_bind_config(c, i);
 		if (ret) {
@@ -396,10 +396,6 @@ static int rndis_function_bind_config(struct android_usb_function *f,
 
 	if (rndis->wceis) {
 		/* "Wireless" RNDIS; auto-detected by Windows */
-		rndis_iad_descriptor.bFunctionClass =
-						USB_CLASS_WIRELESS_CONTROLLER;
-		rndis_iad_descriptor.bFunctionSubClass = 0x01;
-		rndis_iad_descriptor.bFunctionProtocol = 0x03;
 		rndis_control_intf.bInterfaceClass =
 						USB_CLASS_WIRELESS_CONTROLLER;
 		rndis_control_intf.bInterfaceSubClass =	 0x01;
