@@ -395,7 +395,7 @@ int yaffs1_scan(struct yaffs_dev *dev)
 	 * hardlinks.
 	 */
 
-	yaffs_link_fixup(dev, &hard_list);
+	yaffs_link_fixup(dev, hard_list);
 
 	/* Fix up any shadowed objects */
 	{

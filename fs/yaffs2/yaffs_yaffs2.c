@@ -1577,7 +1577,7 @@ int yaffs2_scan_backwards(struct yaffs_dev *dev)
 	 * We should now have scanned all the objects, now it's time to add these
 	 * hardlinks.
 	 */
-	yaffs_link_fixup(dev, &hard_list);
+	yaffs_link_fixup(dev, hard_list);
 
 	yaffs_release_temp_buffer(dev, chunk_data, __LINE__);
 
