@@ -71,8 +71,8 @@
 #include <asm/mach-types.h>
 //P990_IFX_GB_LGSI_START
 //Domain:- RIL: 
-/* pradeep.g@lge.com :: 08-July-11 :: RIL Recovery for second time not working due to local variable NvOdmGpioPinHandle declaration, now made global as per Froyo  [START] */
-//BEGIN : byeonggeun.kim@lge.com 2011-7-8 
+/*  :: 08-July-11 :: RIL Recovery for second time not working due to local variable NvOdmGpioPinHandle declaration, now made global as per Froyo  [START] */
+//BEGIN :  2011-7-8 
 //MOD : 0019311: [Star-GB] since 2nd RIL recovery, recovery is not working.
 /*
 	RECOVERY_MODE
@@ -91,7 +91,7 @@
 static NvOdmServicesGpioHandle hGpio = NULL;
 static NvOdmGpioPinHandle hPin = NULL; 
 #endif
-//END : byeonggeun.kim@lge.com 2011-7-8 
+//END :  2011-7-8 
 /*  :: 08-July-11 :: RIL Recovery for second time not working due to local variable NvOdmGpioPinHandle declaration, now made global as per Froyo [END] */
 //P990_IFX_GB_TD_ISSUE_FIX_LGSI_END
 #ifdef LGE_KERNEL_MUX
@@ -246,9 +246,9 @@ struct spi_data_recived_struct {
 struct spi_data_send_struct;
 struct spi_data_send_struct {
     struct spi_data_send_struct *next;
-//LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [Start]
+//LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [Start]	
 //    u8  dlci;
-//LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [End]
+//LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [End]	
     u8 *data;
     int size;
 };
@@ -257,7 +257,7 @@ static DEFINE_SPINLOCK(frame_nodes_lock);
 static unsigned long lock_flag ;
 //LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [End]
 static struct spi_data_send_struct frame_node[MAX_WAITING_FRAMES];
-static struct spi_data_send_struct *frame_to_send[TS0710MAX_PRIORITY_NUMBER];
+static struct spi_data_send_struct *frame_to_send[TS0710MAX_PRIORITY_NUMBER];          
 static struct spi_data_recived_struct spi_data_recieved;
 static struct task_struct *task;
 static struct task_struct *write_task;
@@ -846,11 +846,11 @@ void process_mcc(u8 * data, u32 len, ts0710_con * ts0710, int longpkt)
 		}
 
 	case NSC:		/*Non supported command resonse */
-		LTMUX("MUX Received Non supported command response");
+		TS0710_LOG("MUX Received Non supported command response");
 		break;
 
 	default:		/*Non supported command received */
-		LTMUX("MUX Received a non supported command");
+		TS0710_LOG("MUX Received a non supported command");
 		send_nsc_msg(ts0710, mcc_short_pkt->h.type, MCC_RSP);
 		break;
 	}
@@ -996,7 +996,7 @@ void ts0710_recv_data_server(ts0710_con * ts0710, short_frame *short_pkt, int le
 		TS0710_DEBUG("UIH packet received");
 
 		if (GET_PF(short_pkt->h.control)) {
-			LTMUX("MUX Error: UIH packet with P/F set, discard it!");
+			TS0710_LOG("MUX Error: UIH packet with P/F set, discard it!");
 			break;
 		}
 
@@ -1046,7 +1046,7 @@ void process_uih(ts0710_con * ts0710, char *data, int len, u8 dlci) {
 
 	if ((ts0710->dlci[dlci].state != CONNECTED)
 			&& (ts0710->dlci[dlci].state != FLOW_STOPPED)) {
-		LTMUX("MUX Error: DLCI [%d] not connected, discard it!", dlci);
+		TS0710_LOG("MUX Error: DLCI [%d] not connected, discard it!", dlci);
 		send_dm(ts0710, dlci);
 		return;
 	}
@@ -1080,7 +1080,7 @@ void process_uih(ts0710_con * ts0710, char *data, int len, u8 dlci) {
 	if (!uih_len)
 		return;
 
-	LTMUX("TS07.10:uih tag %x on dlci %d",tag,dlci);
+	TS0710_LOG("TS07.10:uih tag %x on dlci %d",tag,dlci);
 #endif
 
 	tty_idx = dlci;
@@ -1436,14 +1436,14 @@ static void mux_close(struct tty_struct *tty, struct file *filp)
 #ifdef LGE_KERNEL_MUX
 /*Workaround Infineon modem - DLS opened once will never be closed*/
 //LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [Start]
-//20100915-1, syblue.lee@lge.com, Fix VT can't recevie data from CP [START]
+//20100915-1, , Fix VT can't recevie data from CP [START]
 		if(dlci==12)
 		{	//When VT close DLC 12 with flow off status, must send flow on status to CP
 			//TS0710_PRINTK("%s - close channel[%d]\n", __FUNCTION__, dlci);
 			ts0710_flow_on(dlci, &ts0710_connection);
 		}
 	TS0710_PRINTK("%s - close channel[%d]\n", __FUNCTION__, dlci);	
-//20100915, syblue.lee@lge.com, Fix VT can't recevie data from CP [END]
+//20100915, , Fix VT can't recevie data from CP [END]
 //LGSI_BSP_CHANGE Merge from Froyo [][lgp990_gb]18042011 [End]
         return;
 #else        
@@ -1637,11 +1637,11 @@ static void DUMP_MUX_BUFFER(const unsigned char *txt, const unsigned char *buf, 
             ++i;
         }
         *cur_str = 0;
-        LTMUX("%s:count:%d [ %s]", txt, count, dump_buf_str);
+        TS0710_LOG("%s:count:%d [ %s]", txt, count, dump_buf_str);
     }
     else
     {
-        LTMUX("%s: buffer is NULL", txt);
+        TS0710_LOG("%s: buffer is NULL", txt);
     }
 }
 #else
@@ -2169,7 +2169,7 @@ static int ts_ldisc_open(struct tty_struct *tty)
     spi_data_recieved.flags = NULL;
     spi_data_recieved.size = 0;
     spi_data_recieved.updated = 0;
-    // LGE_UPDATE_S // 20100826 syblue.lee@lge.com
+    // LGE_UPDATE_S // 20100826 
     task = NULL;
     // LGE_UPDATE_E
     write_task = NULL;
@@ -2198,7 +2198,7 @@ static int ts_ldisc_open(struct tty_struct *tty)
 #include "nvodm_query_discovery.h"
 #endif
 */
-/* pradeep.g@lge.com :: 08-July-11 :: RIL Recovery for second time not working due to local variable NvOdmGpioPinHandle declaration, now made global as per Froyo [END] */
+/*  :: 08-July-11 :: RIL Recovery for second time not working due to local variable NvOdmGpioPinHandle declaration, now made global as per Froyo [END] */
 //P990_IFX_GB_TD_ISSUE_FIX_LGSI_END
 
 static void ts_ldisc_close(struct tty_struct *tty)
@@ -2287,7 +2287,7 @@ static void ts_ldisc_close(struct tty_struct *tty)
 
 static void ts_ldisc_wake(struct tty_struct *tty)
 {
-	LTMUX("ts wake");
+	TS0710_LOG("ts wake");
 }
 
 static ssize_t ts_ldisc_read(struct tty_struct *tty, struct file *file,
