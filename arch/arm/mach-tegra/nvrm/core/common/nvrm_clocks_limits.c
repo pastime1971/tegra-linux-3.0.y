@@ -84,18 +84,18 @@ NvRmCpuShmoo fake_CpuShmoo;
 // Total of 7 available spots for P99x/SU660
 NvU32 FakeShmooVmaxIndex = NVRM_VOLTAGE_STEPS - 1;
 
-NvU32 FakeShmooVoltages[] = {
-    775,
-    825,
-    875,
-    900,
-    925,
-    1000,
-    1150,
-    1255,
-};
+#define MAX_CPU_OC_FREQ (1408000)
 
-#define MAX_CPU_OC_FREQ 1408000
+NvU32 FakeShmooVoltages[] = {
+    790,
+    830,
+    880,
+    900,
+    930,
+    1020,
+    1055,
+    1155
+};
 
 NvRmScaledClkLimits FakepScaledCpuLimits = {
     101, // FakepScaledCpuLimits.HwDeviceId
@@ -103,14 +103,14 @@ NvRmScaledClkLimits FakepScaledCpuLimits = {
     32, // FakepScaledCpuLimits.MinKHz
     // Clock table
     {
-        216000,
-        324000,
-        503000,
-        655000,
-        816000,
-        1015000,
-        1216000,
-        1408000,
+    216000,
+    324000,
+    503000,
+    655000,
+    800000,
+    1015000,
+    1100000,
+    1216000
     }
 };
 #endif // CONFIG_FAKE_SHMOO
@@ -218,7 +218,7 @@ NvRmPrivClockLimitsInit(NvRmDeviceHandle hRmDevice)
     // AVP clock
     pSKUedLimits->AvpMaxKHz = CONFIG_MAX_AVP_OC_FREQ;
     // 3D GPU clock
-    pSKUedLimits->TDMaxKHz = CONFIG_MAX_GPU_OC_FREQ;
+    pSKUedLimits->TDMaxKHz = CONFIG_MAX_3D_OC_FREQ;
 #endif
     NvOsDebugPrintf("NVRM corner (%d, %d)\n",
         s_ChipFlavor.corner, s_ChipFlavor.CpuCorner);
@@ -279,13 +279,13 @@ NvRmPrivClockLimitsInit(NvRmDeviceHandle hRmDevice)
         }
     }
 
-#ifdef CONFIG_BOOST_PERIPHERALS
-    s_ClockRangeLimits[NvRmModuleID_Avp].MaxKHz = CONFIG_MAX_AVP_OC_FREQ;
-    s_ClockRangeLimits[NvRmModuleID_2D].MaxKHz = CONFIG_MAX_DDR_OC_FREQ;
-    s_ClockRangeLimits[NvRmModuleID_3D].MaxKHz = CONFIG_MAX_GPU_OC_FREQ;
-    s_ClockRangeLimits[NvRmModuleID_Epp].MaxKHz = CONFIG_MAX_DDR_OC_FREQ;
-#endif
-
+	/* Imperticus work
+	s_ClockRangeLimits[2].MaxKHz = 280000;
+	s_ClockRangeLimits[7].MaxKHz = 340000;
+	s_ClockRangeLimits[8].MaxKHz = 400000;
+	s_ClockRangeLimits[10].MaxKHz = 400000;
+	*/
+	
     // Fill in CPU scaling data if SoC has dedicated CPU rail, and CPU clock
     // characterization data is separated from other modules on common core rail
     if (s_ChipFlavor.pCpuShmoo)
