@@ -973,16 +973,16 @@ NvOdmQueryDapPortGetProperty(
         { NvOdmDapPort_None, NvOdmDapPort_None, { 0, 0, 0, 0 } },
         // I2S1 (DAC1) <-> DAP1 <-> HIFICODEC
         { NvOdmDapPort_I2s1, NvOdmDapPort_HifiCodecType,
-          { 2, 16, 48000, NvOdmQueryI2sDataCommFormat_I2S } }, // Dap1
+          { 2, 24, 48000, NvOdmQueryI2sDataCommFormat_I2S } }, // Dap1
         // I2S2 (DAC2) <-> DAP2 <-> VOICECODEC
         {NvOdmDapPort_I2s2, NvOdmDapPort_VoiceCodecType,
-          {2, 16, 16000, NvOdmQueryI2sDataCommFormat_Dsp } },   // Dap2
+          {2, 16, 22000, NvOdmQueryI2sDataCommFormat_Dsp } },   // Dap2
         // I2S2 (DAC2) <-> DAP3 <-> BASEBAND
         {NvOdmDapPort_I2s2, NvOdmDapPort_BaseBand,
-          {2, 16, 16000, NvOdmQueryI2sDataCommFormat_I2S } },   // Dap3
+          {2, 16, 22000, NvOdmQueryI2sDataCommFormat_I2S } },   // Dap3
         // I2S2 (DAC2) <-> DAP4 <-> BLUETOOTH
         {NvOdmDapPort_I2s2, NvOdmDapPort_BlueTooth,
-          {2, 16, 16000, NvOdmQueryI2sDataCommFormat_I2S } },   // Dap4
+          {2, 16, 22000, NvOdmQueryI2sDataCommFormat_I2S } },   // Dap4
     };
 
     if (DapPortId && DapPortId<NV_ARRAY_SIZE(s_Property))
@@ -1462,7 +1462,15 @@ NvU32 NvOdmQueryMemSize(NvOdmMemoryType MemType)
 
 NvU32 NvOdmQueryCarveoutSize(void)
 {
-    return 0x06000000; // 96 MB
+    //20100802  increase carveout memory
+#if 0
+    return 0x08000000; // 128 MB <- 64MB
+#else
+    extern unsigned int nvmap_carveout_size;
+    /* carveout size is controled by the nvmem boot param. nvmem=128M is default for LG Star */
+    pr_info("%s: nvmap_carveout_size=%d\n", __func__, nvmap_carveout_size);
+    return nvmap_carveout_size;
+#endif
 }
 
 NvU32 NvOdmQuerySecureRegionSize(void)
