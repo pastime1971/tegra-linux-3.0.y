@@ -52,11 +52,6 @@ config DDR2_SDRAM_FREQ
 	default 350000 if BOOST_PERIPHERALS
 	default 300000
 
-config EMC_CORE_VOLT
-	int "EMC Core Voltage"
-	default 1150 if BOOST_PERIPHERALS
-	default 1200
-
 if LPRINTK
 config  LPRINTK_ALL
         bool "Select All Devices"
