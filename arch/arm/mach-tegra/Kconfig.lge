@@ -27,14 +27,6 @@ config FAKE_SHMOO
 	depends on MACH_STAR
 	default y
 
-config MAX_CPU_OC_FREQ
-	int "Maximum CPU Overclock Frequency"
-	default 1408000
-
-config MAX_CPU_OC_VOLT
-	int "Maximum CPU Overclock Voltage"
-	default 1250
-
 config BOOST_PERIPHERALS
 	bool "Tegra2 Overclocking Peripheral Enable"
 	depends on MACH_STAR
