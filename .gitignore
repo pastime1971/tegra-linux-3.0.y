@@ -81,3 +81,5 @@ GTAGS
 \#*#
 
 warn.log
+arch/arm/boot/compressed/piggy.xzkern
+arch/arm/boot/compressed/ashldi3.S
