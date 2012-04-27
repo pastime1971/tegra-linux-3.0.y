@@ -160,20 +160,18 @@ static void tegra_touch_early_suspend(struct early_suspend *es)
 	printk("[TOUCH] tegra_touch_early_suspend\n");
 	
 	if (touch && touch->hTouchDevice) {
-        if (!touch->bIsSuspended) {
-            NvOdmOsMutexLock(touch->hMutex);
-		NvOdmTouchInterruptMask(touch->hTouchDevice, NV_TRUE);
-			
-		NvOdmTouchPowerControl(touch->hTouchDevice, NvOdmTouch_PowerMode_3);
-
-            touch->bIsSuspended = NV_TRUE;
-            if (!touch->bPollingMode) {
-                /* allow touch thread to call wake_event_freezer */
-                NvOdmOsSemaphoreSignal(touch->semaphore);
-            }
-            NvOdmOsMutexUnlock(touch->hMutex);
-        } 
-        else printk("[TOUCH]!: bIsSuspended = TURE!@tegra_touch_early_suspend\n");
+		if (!touch->bIsSuspended) {
+			NvOdmOsMutexLock(touch->hMutex);
+			NvOdmTouchInterruptMask(touch->hTouchDevice, NV_TRUE);
+			NvOdmTouchPowerControl(touch->hTouchDevice, NvOdmTouch_PowerMode_3);
+			touch->bIsSuspended = NV_TRUE;
+			if (!touch->bPollingMode) {
+				/* allow touch thread to call wake_event_freezer */
+				NvOdmOsSemaphoreSignal(touch->semaphore);
+			}
+			NvOdmOsMutexUnlock(touch->hMutex);
+		} 
+		else printk("[TOUCH]!: bIsSuspended = TURE!@tegra_touch_early_suspend\n");
 	}
 	else {
 		pr_err("tegra_touch_early_suspend: NULL handles passed\n");
@@ -376,7 +374,7 @@ static int tegra_touch_thread(void *pdata)
 	NvU32 i = 0;
 	NvU32 x[LGE_SUPPORT_FINGERS_NUM] = {0}, y[LGE_SUPPORT_FINGERS_NUM] = {0};
     NvU32 pressure[LGE_SUPPORT_FINGERS_NUM] = {0}, width[LGE_SUPPORT_FINGERS_NUM] = {0};
-    NvU32 prev_pressure;
+    NvU32 prev_pressure = 0;
     NvBool bKeepReadingSamples;
 
     NvBool ToolDown[LGE_SUPPORT_FINGERS_NUM] = {NV_FALSE, NV_FALSE};
