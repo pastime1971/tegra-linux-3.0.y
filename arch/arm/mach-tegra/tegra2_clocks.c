@@ -689,8 +689,6 @@ void tegra2_periph_reset_assert(struct clk *c)
 			   RST_DEVICES_SET + PERIPH_CLK_TO_ENB_SET_REG(c));
 	}
 }
-}
-
 
 static int tegra2_periph_clk_set_parent(struct clk *c, struct clk *p)
 {
