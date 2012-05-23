@@ -215,7 +215,7 @@ static int tegra_otg_set_suspend(struct otg_transceiver *otg, int suspend)
 }
 
 /* platform driver interface */
-static int __init tegra_otg_probe(struct platform_device *pdev)
+static int tegra_otg_probe(struct platform_device *pdev)
 {
 	int err = 0;
 	struct resource *res;
