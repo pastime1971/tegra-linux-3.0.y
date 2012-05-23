@@ -25,6 +25,7 @@
 #include <linux/platform_device.h>
 #include <linux/irq.h>
 #include <linux/gpio.h>
+#include <linux/regulator/consumer.h>
 
 #include <mach/usb-hcd.h>
 #include <mach/nvrm_linux.h>
@@ -43,6 +44,7 @@
 #define TEGRA_USB_PHY_WAKEUP_REG_OFFSET		(0x408)
 #define TEGRA_USB_USBMODE_REG_OFFSET		(0x1a8)
 #define TEGRA_USB_USBMODE_HOST			(3)
+#define STS_SRI        (1<<7)  /*      SOF Recieved    */
 
 /*
  * Work thread function for setting the usb busy hints.
@@ -207,6 +209,50 @@ static void tegra_ehci_shutdown (struct usb_hcd *hcd)
 	}
 }
 
+#ifdef CONFIG_MACH_STAR
+void tegra_ehci_enable_host (struct usb_hcd *hcd)
+{
+	struct ehci_hcd *ehci = hcd_to_ehci (hcd);
+	unsigned long flags;
+
+	spin_lock_irqsave (&ehci->lock, flags);
+
+	if (ehci->transceiver->state == OTG_STATE_A_HOST) {
+		if (!ehci->host_reinited) {
+			schedule_work(&ehci->irq_work);
+			spin_unlock_irqrestore (&ehci->lock, flags);
+			return;
+		} else
+			printk(KERN_DEBUG "%s host initialized already\n", __func__);
+	} else if (ehci->transceiver->state == OTG_STATE_A_SUSPEND) {
+		if (!ehci->host_reinited) {
+			printk(KERN_DEBUG "%s host not initialized\n", __func__);
+			spin_unlock_irqrestore (&ehci->lock, flags);
+			return;
+		}
+		else {
+			/* Force the disconnect because otherwise we could get
+			 * left in the connected state if the last getPorStatus
+			 * request comes in before the HOST -> SUSPEND state
+			 * change. */
+			spin_unlock_irqrestore (&ehci->lock, flags);
+			/* indicate hcd flags, that hardware is not accessible now */
+			clear_bit(HCD_FLAG_HW_ACCESSIBLE, &hcd->flags);
+			ehci_halt(ehci);
+			tegra_ehci_power_down(hcd);
+			ehci->transceiver->state = OTG_STATE_UNDEFINED;
+			ehci->host_reinited = 0;
+			return;
+		}
+	} else
+		printk(KERN_DEBUG "%s unexpected state\n", __func__);
+
+	spin_unlock_irqrestore (&ehci->lock, flags);
+	ehci_irq(hcd);
+
+	return;
+}
+#endif
 /*
  * Work thread function for handling the USB power sequence.
  *
@@ -332,7 +378,7 @@ static int tegra_ehci_setup(struct usb_hcd *hcd)
 	/* EHCI registers start at offset 0x100 */
 	ehci->caps = hcd->regs + 0x100;
 	ehci->regs = hcd->regs + 0x100 +
-		HC_LENGTH(readl(&ehci->caps->hc_capbase));
+		HC_LENGTH(ehci, readl(&ehci->caps->hc_capbase));
 
 	dbg_hcs_params(ehci, "reset");
 	dbg_hcc_params(ehci, "reset");
@@ -599,14 +645,6 @@ static int tegra_ehci_probe(struct platform_device *pdev)
 		goto fail_iomap;
 	}
 	platform_set_drvdata(pdev, hcd);
-
-#ifdef CONFIG_DMABOUNCE
-	e = dmabounce_register_dev(&pdev->dev, 1024, 32768);
-	if (e != 0) {
-		dev_err(&pdev->dev, "failed to register DMA bounce\n");
-		goto fail_add;
-	}
-#endif
 
 #ifdef CONFIG_USB_OTG_UTILS
 	if (pdata->otg_mode) {

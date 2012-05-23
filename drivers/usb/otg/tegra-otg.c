@@ -29,7 +29,7 @@
 #include <asm/io.h>
 #include <mach/usb-otg.h>
 #include <mach/nvrm_linux.h>
-#include "../core/hcd.h"
+#include <linux/usb/hcd.h>
 #include "nvddk_usbphy.h"
 
 #define TEGRA_USB_ID_INT_ENABLE			(1 << 0)
@@ -43,6 +43,9 @@
 #define TEGRA_USB_WAKEUP_REG_OFFSET		(0x408)
 
 static const char driver_name[] = "tegra-otg";
+#ifdef CONFIG_MACH_STAR
+extern void tegra_ehci_enable_host (struct usb_hcd *);
+#endif
 
 /*
  * Needs to be loaded before the UDC and Host driver that will use it.
@@ -55,10 +58,53 @@ struct tegra_otg_data {
 	void __iomem		*regs;	/* device memory/io */
 	int instance; /* instance number of the controller */
 	NvDdkUsbPhyHandle usb_phy; /* handle to the USB phy */
+	int id_connected;   /* 1 if usb id pin is connected to OTG port */
+	int vbus_connected; /* 1 if usb vbus pin is connected to OTG port */
 };
 
 static struct tegra_otg_data *sg_tegra_otg = NULL;
 
+#ifdef CONFIG_MACH_STAR
+void tegra_otg_set_mode(int mode)
+{
+	struct usb_hcd *hcd = (struct usb_hcd *)sg_tegra_otg->otg.host;
+	unsigned long flags;
+
+	/* FIXME: get rid of the magic numbers */
+	if(mode == 1) {
+		printk(KERN_DEBUG "%s setting OTG_STATE_A_HOST\n", __func__);
+		if(sg_tegra_otg->otg.host) {
+			spin_lock_irqsave(&sg_tegra_otg->lock, flags);
+			sg_tegra_otg->otg.state = OTG_STATE_A_HOST;
+			set_bit(HCD_FLAG_HW_ACCESSIBLE, &hcd->flags);
+			spin_unlock_irqrestore(&sg_tegra_otg->lock, flags);
+			tegra_ehci_enable_host(hcd);
+		}
+	}
+	else if (mode == 0) {
+		printk(KERN_DEBUG "%s setting OTG_STATE_B_PERIPHERAL\n", __func__);
+		if(sg_tegra_otg->otg.gadget) {
+			spin_lock_irqsave(&sg_tegra_otg->lock, flags);
+			sg_tegra_otg->otg.state = OTG_STATE_B_PERIPHERAL;
+			spin_unlock_irqrestore(&sg_tegra_otg->lock, flags);
+		}
+	} else {
+		printk(KERN_DEBUG "%s setting OTG_STATE_A_SUSPEND\n", __func__);
+		spin_lock_irqsave(&sg_tegra_otg->lock, flags);
+		if(sg_tegra_otg->otg.state == OTG_STATE_A_HOST) {
+			sg_tegra_otg->otg.state = OTG_STATE_A_SUSPEND;
+			spin_unlock_irqrestore(&sg_tegra_otg->lock, flags);
+			tegra_ehci_enable_host(hcd);
+		}
+		else {
+			sg_tegra_otg->otg.state = OTG_STATE_A_SUSPEND;
+			spin_unlock_irqrestore(&sg_tegra_otg->lock, flags);
+		}
+	}
+
+	return;
+}
+#endif
 
 /* VBUS change IRQ handler */
 static irqreturn_t tegra_otg_irq(int irq, void *data)
@@ -74,7 +120,7 @@ static irqreturn_t tegra_otg_irq(int irq, void *data)
 	status = readl(tegra_otg->regs + TEGRA_USB_WAKEUP_REG_OFFSET);
 	writel(status, tegra_otg->regs + TEGRA_USB_WAKEUP_REG_OFFSET);
 
-	if (tegra_otg->otg.host) {
+	if (tegra_otg->otg.host && tegra_otg->id_connected) {
 		/* Check if there is any ID pin interrupt */
 		if (status & TEGRA_USB_ID_INT_STATUS) {
 			if (status & TEGRA_USB_ID_STATUS) {
@@ -87,7 +133,7 @@ static irqreturn_t tegra_otg_irq(int irq, void *data)
 		}
 	}
 
-	if (tegra_otg->otg.gadget && (tegra_otg->otg.state != OTG_STATE_A_HOST)) {
+	if (tegra_otg->otg.gadget && (tegra_otg->otg.state != OTG_STATE_A_HOST) && tegra_otg->vbus_connected) {
 		if (status & TEGRA_USB_VBUS_INT_STATUS) {
 			if (status & TEGRA_USB_VBUS_STATUS) {
 				tegra_otg->otg.state = OTG_STATE_B_PERIPHERAL;
@@ -96,6 +142,7 @@ static irqreturn_t tegra_otg_irq(int irq, void *data)
 			}
 		}
 	}
+
 	spin_unlock_irqrestore(&tegra_otg->lock, flags);
 	return IRQ_HANDLED;
 }
@@ -108,13 +155,18 @@ static int tegra_otg_set_peripheral(struct otg_transceiver *otg,
 	unsigned long flags;
 
 	otg->gadget = gadget;
-	temp = readl(sg_tegra_otg->regs + TEGRA_USB_WAKEUP_REG_OFFSET);
-	temp |= (TEGRA_USB_VBUS_INT_ENABLE | TEGRA_USB_VBUS_WAKEUP_ENABLE);
-	temp &= ~TEGRA_USB_VBUS_INT_STATUS;
-	writel(temp, (sg_tegra_otg->regs + TEGRA_USB_WAKEUP_REG_OFFSET));
+
+	if (sg_tegra_otg->vbus_connected) {
+		temp = readl(sg_tegra_otg->regs + TEGRA_USB_WAKEUP_REG_OFFSET);
+		temp |= (TEGRA_USB_VBUS_INT_ENABLE | TEGRA_USB_VBUS_WAKEUP_ENABLE);
+		temp &= ~TEGRA_USB_VBUS_INT_STATUS;
+		writel(temp, (sg_tegra_otg->regs + TEGRA_USB_WAKEUP_REG_OFFSET));
+	} else {
+		temp = readl(sg_tegra_otg->regs + TEGRA_USB_WAKEUP_REG_OFFSET);
+	}
 
 	/* Check if we detect any device connected */
-	if (!(temp & TEGRA_USB_ID_STATUS)) {
+	if (sg_tegra_otg->id_connected && !(temp & TEGRA_USB_ID_STATUS)) {
 		struct usb_hcd *hcd = (struct usb_hcd *)otg->host;
 		spin_lock_irqsave(&sg_tegra_otg->lock, flags);
 		otg->state = OTG_STATE_A_HOST;
@@ -169,6 +221,7 @@ static int __init tegra_otg_probe(struct platform_device *pdev)
 	struct resource *res;
 	int instance = pdev->id;
 	NvError e;
+	struct tegra_otg_platform_data *pdata;
 
 	sg_tegra_otg = kzalloc(sizeof(struct tegra_otg_data), GFP_KERNEL);
 	if (!sg_tegra_otg)
@@ -191,6 +244,11 @@ static int __init tegra_otg_probe(struct platform_device *pdev)
 	sg_tegra_otg->otg.set_host = tegra_otg_set_host;
 	sg_tegra_otg->otg.set_power = tegra_otg_set_power;
 	sg_tegra_otg->otg.set_suspend = tegra_otg_set_suspend;
+	pdata = sg_tegra_otg->dev->platform_data;
+	if(pdata->usb_property->IdPinDetectionType == NvOdmUsbIdPinType_CableId)
+		sg_tegra_otg->id_connected = 1;
+	if(pdata->usb_property->UseInternalPhyWakeup)
+		sg_tegra_otg->vbus_connected = 1;
 
 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
 	if (!res) {
@@ -265,9 +323,12 @@ static int tegra_otg_resume(struct platform_device * pdev)
 
 	/* enable the cable ID and VBUS interrupts */
 	temp = readl(tegra_otg->regs + TEGRA_USB_WAKEUP_REG_OFFSET);
-	temp |= (TEGRA_USB_ID_INT_ENABLE | TEGRA_USB_ID_PIN_WAKEUP_ENABLE);
-	temp |= (TEGRA_USB_VBUS_INT_ENABLE | TEGRA_USB_VBUS_WAKEUP_ENABLE);
-	temp &= ~TEGRA_USB_VBUS_INT_STATUS;
+	if (tegra_otg->id_connected)
+		temp |= (TEGRA_USB_ID_INT_ENABLE | TEGRA_USB_ID_PIN_WAKEUP_ENABLE);
+	if (tegra_otg->vbus_connected) {
+		temp |= (TEGRA_USB_VBUS_INT_ENABLE | TEGRA_USB_VBUS_WAKEUP_ENABLE);
+		temp &= ~TEGRA_USB_VBUS_INT_STATUS;
+	}
 	writel(temp, (tegra_otg->regs + TEGRA_USB_WAKEUP_REG_OFFSET));
 
 	return 0;
